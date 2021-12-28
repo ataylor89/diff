@@ -46,11 +46,11 @@ void diff(char* file1, char* file2, int mode) {
 
             char *fmt;
             if (j % 2 == 0)
-                fmt = "\%02hhx";
+                fmt = "%02hhx";
             else if (j == 15 || i+j == size1-1)
-                fmt = "\%02hhx    ";
+                fmt = "%02hhx    ";
             else
-                fmt = "\%02hhx ";
+                fmt = "%02hhx ";
 
             if (a == b) {
                 printf(fmt, a);
@@ -67,11 +67,11 @@ void diff(char* file1, char* file2, int mode) {
             
             char *fmt;
             if (j % 2 == 0)
-                fmt = "\%02hhx";
+                fmt = "%02hhx";
             else if (j == 15 || i+j==size2-1)
-                fmt = "\%02hhx\n";
+                fmt = "%02hhx\n";
             else
-                fmt = "\%02hhx ";
+                fmt = "%02hhx ";
 
             if (a == b) {
                 printf(fmt, b);
