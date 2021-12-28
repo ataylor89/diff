@@ -81,7 +81,6 @@ void diff(char* file1, char* file2, int mode) {
                 printf(fmt, b);
                 printf(ANSI_COLOR_RESET);
             }
-
         }
         i += 16;
     }
