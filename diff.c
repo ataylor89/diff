@@ -67,8 +67,8 @@ void diff(char* file1, char* file2, int mode) {
             }
         }
         for (int j = 0; j < 16 && i+j < size2; j++) {
-            unsigned char a = (unsigned char) buf1[i+j];
-            unsigned char b = (unsigned char) buf2[i+j];
+            char a = buf1[i+j];
+            char b = buf2[i+j];
             
             char *fmt;
             if (j == 15 || (i+j == size2-1))
