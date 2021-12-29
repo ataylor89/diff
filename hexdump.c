@@ -15,10 +15,10 @@ void hexdump(char *filename) {
                 printf("%02hhx\n", buf[i+j]);
             else if (i + j == filesize-1)
                 printf("%02hhx\n", buf[i+j]);
-            else if (j % 2 == 0)
-                printf("%02hhx", buf[i+j]);
             else if (j % 2 == 1)
                 printf("%02hhx ", buf[i+j]);
+            else 
+                printf("%02hhx", buf[i+j]);
         }
         i += 16;
         l += 16L;
