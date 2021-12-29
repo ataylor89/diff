@@ -39,7 +39,10 @@ void diff(char* file1, char* file2, int mode) {
     
     int len = size1 > size2 ? size1 : size2;
 
+    unsigned long l = 0;
     for (int i = 0; i < len; i++) {
+        l += 16L;
+        printf("%08lx  ", l);
         for (int j = 0; j < 16 && i+j < size1; j++) {
             char a = buf1[i+j];
             char b = buf2[i+j];
@@ -72,7 +75,7 @@ void diff(char* file1, char* file2, int mode) {
             
             char *fmt;
             if (j == 15 || (i+j == size2-1))
-                fmt = "%02hhx\n";
+                fmt = "%02hhx";
             else if (j % 2 == 0)
                 fmt = "%02hhx";
             else
@@ -87,6 +90,7 @@ void diff(char* file1, char* file2, int mode) {
                 printf(ANSI_COLOR_RESET);
             }
         }
+        printf("\n");
         i += 16;
     }
     fclose(f1);

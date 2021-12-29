@@ -10,5 +10,5 @@ start:
         xor rdi, rdi
         syscall
         section .data
-message:    db      "hello world",10,0
+message:    db      "hello universe",10,0
 len:        equ     $-message   
