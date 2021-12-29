@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void hexdump(char *filename) {
+void print_file(char *filename) {
     FILE *file = fopen(filename, "r");
     fseek(file, 0, SEEK_END);
     int filesize = ftell(file);
@@ -30,6 +30,6 @@ int main(int argc, char **argv) {
         printf("Usage: ./%s <filename>\n", argv[0]);
         return 0;
     }
-    hexdump(argv[1]);
+    print_file(argv[1]);
     return 0;
 }
