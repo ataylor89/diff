@@ -26,6 +26,19 @@ char *read_file(FILE *file, int filesize) {
     return buf;
 }
 
+void colorprint(char c, int colored, int color, int padding) {;
+    if (colored) {
+        printf(color ? ANSI_COLOR_RED : ANSI_COLOR_GREEN);
+        printf("%02hhx", c);
+        printf("%*c", padding, ' ');
+        printf(ANSI_COLOR_RESET);
+    }
+    else {
+        printf("%02hhx", c);
+        printf("%*c", padding, ' ');
+    }
+}
+
 void diff(char* file1, char* file2, int mode) {
     printf("Running diff on files %s and %s in mode %d\n", file1, file2, mode);
     FILE *f1 = fopen(file1, "r");
@@ -46,49 +59,25 @@ void diff(char* file1, char* file2, int mode) {
         for (int j = 0; j < 16 && i+j < size1; j++) {
             char a = buf1[i+j];
             char b = buf2[i+j];
-
-            char *fmt;            
-            if (j == 15)
-                fmt = "%02hhx    ";
+         
+            if (j == 15) 
+                colorprint(a, a != b, 0, 4);
             else if (i+j == size1-1) {
-                char fmt_a[50] = "%02hhx";
-                memset(fmt_a+6, ' ', 4+2*(16-j));
-                fmt = fmt_a;
+                colorprint(a, a != b, 0, 4+2*(15-j)+(15-j));
             }
-            else if (j % 2 == 0)
-                fmt = "%02hhx";
+            else if (j % 2 == 1) 
+                colorprint(a, a != b, 0, 1);
             else
-                fmt = "%02hhx ";
-
-            if (a == b) {
-                printf(fmt, a);
-            }
-            else {
-                printf(ANSI_COLOR_RED);
-                printf(fmt, a);
-                printf(ANSI_COLOR_RESET);
-            }
+                colorprint(a, a != b, 0, 0);
         }
         for (int j = 0; j < 16 && i+j < size2; j++) {
             char a = buf1[i+j];
             char b = buf2[i+j];
             
-            char *fmt;
-            if (j == 15 || (i+j == size2-1))
-                fmt = "%02hhx";
-            else if (j % 2 == 0)
-                fmt = "%02hhx";
+            if (j % 2 == 1)
+                colorprint(b, a != b, 1, 1);
             else
-                fmt = "%02hhx ";
-
-            if (a == b) {
-                printf(fmt, b);
-            }
-            else {
-                printf(ANSI_COLOR_GREEN);
-                printf(fmt, b);
-                printf(ANSI_COLOR_RESET);
-            }
+                colorprint(b, a != b, 1, 0);
         }
         printf("\n");
         i += 16;
