@@ -16,78 +16,37 @@
 #define MAGENTA 4
 #define CYAN 5
 
-/*
-void colorprint(char *str, int color) {
-    switch (color) {
-        case RED:
-            printf(ANSI_COLOR_RED);
-            printf(str);
-            printf(ANSI_COLOR_RESET);
-            break;
-        case GREEN:
-            printf(ANSI_COLOR_GREEN;
-            printf(str);
-            printf(ANSI_COLOR_RESET);
-            break;
-        case YELLOW:
-            printf(ANSI_COLOR_YELLOW);
-            printf(str);
-            printf(ANSI_COLOR_RESET);
-            break;
-        case BLUE:
-            printf(ANSI_COLOR_BLUE);
-            printf(str);
-            printf(ANSI_COLOR_RESET);
-            break;
-        case MAGENTA:
-            printf(ANSI_COLOR_MAGENTA);
-            printf(str);
-            printf(ANSI_COLOR_RESET);
-            break;
-        case CYAN:
-            printf(ANSI_COLOR_CYAN);
-            printf(str);
-            printf(ANSI_COLOR_RESET);
-            break;
-        default:
-            printf(ANSI_COLOR_GREEN;
-            printf(str);
-            printf(ANSI_COLOR_RESET);
-            break;
-    }    
-}*/
-
 void colorprint(char *str, char *color) {
     if (strcmp(color, "red") == 0) {
         printf(ANSI_COLOR_RED);
-        printf(str);
+        printf("%s", str);
         printf(ANSI_COLOR_RESET);
         printf("\n");
     } else if (strcmp(color, "green") == 0) {
         printf(ANSI_COLOR_GREEN);
-        printf(str);
+        printf("%s", str);
         printf(ANSI_COLOR_RESET);
         printf("\n");
     } else if (strcmp(color, "yellow") == 0) {
         printf(ANSI_COLOR_YELLOW);
-        printf(str);
+        printf("%s", str);
         printf(ANSI_COLOR_RESET);
         printf("\n");
     } else if (strcmp(color, "blue") == 0) {
         printf(ANSI_COLOR_BLUE);
-        printf(str);
+        printf("%s", str);
         printf(ANSI_COLOR_RESET);
         printf("\n");
     }
     else if (strcmp(color, "magenta") == 0) {
         printf(ANSI_COLOR_MAGENTA);
-        printf(str);
+        printf("%s", str);
         printf(ANSI_COLOR_RESET);
         printf("\n");
     }
     else if (strcmp(color, "cyan") == 0) {
         printf(ANSI_COLOR_CYAN);
-        printf(str);
+        printf("%s", str);
         printf(ANSI_COLOR_RESET);
         printf("\n");
     }
@@ -98,9 +57,9 @@ int main(int argc, char **argv) {
         printf("Usage: %s <string> <color>", argv[0]);
         return 0;
     }
-    for (int i = 0; i < argc; i++) {
+    /*for (int i = 0; i < argc; i++) {
         printf("argv[%d]: %s\n", i, argv[i]);
-    }
+    }*/
     colorprint(argv[1], argv[2]);
     return 0;
 }
