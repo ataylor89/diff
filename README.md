@@ -12,9 +12,9 @@ The option -fmacho64 means filetype MachO x86_64, which is a kind of object file
 
 For example,
 
-nasm -fmacho64 simple.asm -o simple1.o
-nasm -fmacho64 simple.asm -o simple2.o
-gcc diff.c -o diff
-gcc hexdump.c -o hexdump
-./diff simple1.o simple2.o
+nasm -fmacho64 simple.asm -o simple1.o <br/>
+nasm -fmacho64 simple.asm -o simple2.o <br/>
+gcc diff.c -o diff <br/>
+gcc hexdump.c -o hexdump <br/>
+./diff simple1.o simple2.o <br/>
 ./hexdump simple1.o
