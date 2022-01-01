@@ -14,12 +14,14 @@ void leftprint(char *buf, int offset, int diff, int padding) {
     if (diff) {
         printf(ANSI_COLOR_RED);
         printf("%02hhx", buf[offset]);
-        printf("%*c", padding, ' ');
+        if (padding > 0)
+            printf("%*c", padding, ' ');
         printf(ANSI_COLOR_RESET);
     }
     else {
         printf("%02hhx", buf[offset]);
-        printf("%*c", padding, ' ');
+        if (padding > 0)
+            printf("%*c", padding, ' ');
     }
 }
 
@@ -27,12 +29,14 @@ void rightprint(char *buf, int offset, int diff, int padding) {
     if (diff) {
         printf(ANSI_COLOR_GREEN);
         printf("%02hhx", buf[offset]);
-        printf("%*c", padding, ' ');
+        if (padding > 0)
+            printf("%*c", padding, ' ');
         printf(ANSI_COLOR_RESET);
     }
     else {
         printf("%02hhx", buf[offset]);
-        printf("%*c", padding, ' ');
+        if (padding > 0)
+            printf("%*c", padding, ' ');
     }
 }
 
@@ -64,7 +68,7 @@ void diff(char *f1, char *f2) {
             if (j == 15) 
                 leftprint(bufA, offset, diff, 4);
             else if (i + j == filesize1-1)
-                leftprint(bufA, offset, diff, 4+2*(15-j)+(15-j));
+                leftprint(bufA, offset, diff, 4+2*(16-j));
             else if (j % 2 == 1)
                 leftprint(bufA, offset, diff, 1);
             else 
