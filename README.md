@@ -5,8 +5,8 @@ There are many C programs in this directory
 3. colorprint.c
 4. linenumbers.c
 
-The assembly program, simple.asm, can be used to create an object file, simple.o, with the following command on Mac OS X:    
-    nasm -fmacho64 simple.asm -o simple.o
+The assembly program, simple.asm, can be used to create an object file, simple.o, with the following command on Mac OS X: <br/>   
+nasm -fmacho64 simple.asm -o simple.o
 
 The program nasm assembles the assembly file, simple.asm, into an object file, simple.o
 
