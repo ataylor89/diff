@@ -1,9 +1,11 @@
 # diff
-There are many C programs in this directory
+There are many programs in this directory
 1. diff.c
 2. hexdump.c
 3. colorprint.c
 4. linenumbers.c
+5. simple.asm
+6. simpleprintf.asm
 
 The assembly program, simple.asm, can be used to create an object file, simple.o, with the following command on Mac OS X:   
 nasm -fmacho64 simple.asm -o simple.o
