@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 
 #define ANSI_COLOR_RED     "\x1b[31m"
 #define ANSI_COLOR_GREEN   "\x1b[32m"
@@ -9,6 +10,15 @@
 #define ANSI_COLOR_MAGENTA "\x1b[35m"
 #define ANSI_COLOR_CYAN    "\x1b[36m"
 #define ANSI_COLOR_RESET   "\x1b[0m"
+
+// let n be the number of remaining bytes in a line
+// 2*n + ceil(n/2) + 4
+int get_padding(int n) {
+    int padding = 2*n;
+    padding += (int) ceil(n/2);
+    padding += 4;
+    return padding;
+}
 
 void leftprint(char *buf, int offset, int diff, int padding) {
     if (diff) {
@@ -68,7 +78,7 @@ void diff(char *f1, char *f2) {
             if (j == 15) 
                 leftprint(bufA, offset, diff, 4);
             else if (i + j == filesize1-1)
-                leftprint(bufA, offset, diff, 4+2*(16-j));
+                leftprint(bufA, offset, diff, get_padding(15-j));
             else if (j % 2 == 1)
                 leftprint(bufA, offset, diff, 1);
             else 
