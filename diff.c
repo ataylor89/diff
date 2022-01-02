@@ -11,6 +11,7 @@
 #define ANSI_COLOR_CYAN    "\x1b[36m"
 #define ANSI_COLOR_RESET   "\x1b[0m"
 
+// A formula for calculating padding
 // let n be the number of remaining bytes in a line
 // 2*n + ceil(n/2) + 4
 int get_padding(int n) {
