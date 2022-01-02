@@ -16,11 +16,16 @@ The option -fmacho64 means filetype MachO x86_64, which is a kind of object file
 
 The option -o gives the path of the object file
 
-For example,
+The object file simple.o can be linked with the programs ld or gcc, for example
+1. ld -macosx_version_min 10.7 simple.o -o simple
+2. ld -macosx_version_min 10.7 -lSystem simpleprintf.o -o simpleprintf
+3. gcc simple.o -o simple
+4. gcc simpleprintf.o -o simpleprintf
 
-nasm -fmacho64 simple.asm -o simple1.o <br/>
-nasm -fmacho64 simple.asm -o simple2.o <br/>
-gcc diff.c -o diff <br/>
-gcc hexdump.c -o hexdump <br/>
-./diff simple1.o simple2.o <br/>
-./hexdump simple1.o
+The object files can be compared with diff or viewed with hexdump
+1. nasm -fmacho64 simple.asm -o simple1.o <br/>
+2. nasm -fmacho64 simple.asm -o simple2.o <br/>
+3. gcc diff.c -o diff <br/>
+4. gcc hexdump.c -o hexdump <br/>
+5. ./diff simple1.o simple2.o <br/>
+6. ./hexdump simple1.o
