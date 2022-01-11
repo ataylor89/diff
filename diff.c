@@ -70,7 +70,7 @@ void diff(char *f1, char *f2) {
     unsigned long line_number = 0;
 
     for (int i = 0; i < len; i++) {
-        printf("%08lx ", line_number);
+        printf("%08lx    ", line_number);
         for (int j = 0; j < 16 && i + j < filesize1; j++) {
             int offset = i+j;
             int diff = 0;
